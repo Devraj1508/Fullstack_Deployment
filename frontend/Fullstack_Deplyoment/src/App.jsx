@@ -7,7 +7,7 @@ function App() {
 
   ])
 function fetchnotes(){
-  axios.get("http://localhost:3000/api/notes")
+  axios.get("https://fullstack-deployment-uqpq.onrender.com/api/notes")
   .then((res)=>{
     console.log(res.data);
     setnotes(res.data.notes)
@@ -21,7 +21,7 @@ function handlesubmit(e){
   e.preventDefault()
   const {title,description}=e.target.elements;
   console.log(title.value,description.value)
-  axios.post("http://localhost:3000/api/notes",{
+  axios.post("https://fullstack-deployment-uqpq.onrender.com/api/notes",{
     title:title.value,
     description:description.value
   })
@@ -32,7 +32,7 @@ function handlesubmit(e){
   
 }
 function handledeltenotes(noteId){
-  axios.delete("http://localhost:3000/api/notes/"+noteId)
+  axios.delete("https://fullstack-deployment-uqpq.onrender.com/api/notes/"+noteId)
   .then(res=>{
     console.log(res.data);
     fetchnotes()
